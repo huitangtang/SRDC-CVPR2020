@@ -1,1 +1,618 @@
-zzz
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!--
+  <script src="./resources/jsapi" type="text/javascript"></script>
+  <script type="text/javascript" async>google.load("jquery", "1.3.2");</script>
+ -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Avenir Book';
+            src: url("./fonts/Avenir_Book.ttf"); /* File to be stored at your site */
+        }
+    body {
+    font-family: "Avenir Book", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight:300;
+    font-size:14px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+  }
+  h1 {
+    font-weight:300;
+  }
+  h2 {
+    font-weight:300;
+  }
+
+  p {
+    font-weight:300;
+    line-height: 1.4;
+  }
+
+  code {
+    font-size: 0.8rem;
+    margin: 0 0.2rem;
+    padding: 0.5rem 0.8rem;
+    white-space: nowrap;
+    background: #efefef;
+    border: 1px solid #d3d3d3;
+    color: #000000;
+    border-radius: 3px;
+  }
+
+  pre > code {
+    display: block;
+    white-space: pre;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+  }
+
+  pre.prettyprint > code {
+    border: none;
+  }
+
+
+  .container {
+        display: flex;
+        align-items: center;
+        justify-content: center
+  }
+  .image {
+        flex-basis: 40%
+  }
+  .text {
+        padding-left: 20px;
+        padding-right: 20px;
+  }
+
+  .disclaimerbox {
+    background-color: #eee;
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    padding: 20px;
+  }
+
+  video.header-vid {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.header-img {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.rounded {
+    border: 0px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+
+  }
+
+  a:link,a:visited
+  {
+    color: #1367a7;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #208799;
+  }
+
+  td.dl-link {
+    height: 160px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+            15px 15px 0 0px #fff, /* The fourth layer */
+            15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+            20px 20px 0 0px #fff, /* The fifth layer */
+            20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+            25px 25px 0 0px #fff, /* The fifth layer */
+            25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+
+
+  .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+  }
+
+  .vert-cent {
+    position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
+  hr
+  {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+</style>
+	<title>Unsupervised Domain Adaptation via Structurally Regularized Deep Clustering</title>
+</head>
+
+<body>
+<br>
+<span style="font-size:36px">
+    <div style="text-align: center;">
+        Unsupervised Domain Adaptation via Structurally Regularized Deep Clustering
+    </div>
+</span>
+<br>
+<br>
+<br>
+<table align="center" width="700px">
+    <tr>
+        <td align="center" width="200px">
+            <div style="text-align: center;">
+                <span style="font-size:16px"><a href="https://huitangtang.github.io/">Hui Tang</a><sup>1</sup></span>
+            </div>
+        </td>
+      
+        <td align="center" width="200px">
+            <div style="text-align: center;">
+                <span style="font-size:16px"><a href="https://scholar.google.com/citations?user=pbNCoTwAAAAJ">Ke Chen</a><sup>1</sup></span>
+            </div>
+        </td>
+        
+        <td align="center" width="200px">
+            <div style="text-align: center;">
+                <span style="font-size:16px">
+                    <a href="http://kuijia.site/">Kui Jia</a>
+<!--                    <sup><img class="round" style="width:20px" src="./resources/corresponding_fig.png">3</sup>-->
+                    <sup>&#9993, 1</sup>
+                </span>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<br>
+	
+<table align="center" width="700px">
+    <tbody>
+    <tr>
+        <td align="center" width="300px">
+            <center>
+                <span style="font-size:16px">South China University of Technology<sup>1</sup></span>
+            </center>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<table align="center" width="700px">
+    <tbody>
+    <tr>
+        <td align="center" width="300px">
+            <center>
+                <span style="font-size:16px"><sup>&#9993</sup>Corresponding author</span>
+            </center>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table align="center" width="700px">
+    <tbody>
+    <tr>
+        <td align="center" width="200px">
+            <div style="text-align: center;">
+                <span style="font-size:20px">
+                    Code
+                    <a href="https://github.com/Gorilla-Lab-SCUT/SRDC-CVPR2020">[GitHub]</a>
+                </span>
+            </div>
+        </td>
+
+        <td align="center" width="200px">
+            <div style="text-align: center;">
+                <span style="font-size:20px">
+                    Paper
+                    <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Tang_Unsupervised_Domain_Adaptation_via_Structurally_Regularized_Deep_Clustering_CVPR_2020_paper.pdf">[CVF]</a>
+                </span>
+            </div>
+        </td>
+
+        <td align="center" width="200px">
+            <center>
+                <span style="font-size:20px">
+                    Cite <a href="resources/cite.txt">[BibTeX]</a>
+                </span>
+            </center>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<hr>
+
+<div style="text-align: center;">
+    <h2>Teaser</h2>
+</div>
+
+<p style="text-align:justify; text-justify:inter-ideograph;">
+<table>
+    <tr>
+        <td>
+            <div style="text-align: center;">
+                <img src="resources/GSF&PPF.png" width="900px">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+		We propose to utilize moderately confident samples for better model optimization. 
+		Based on the principle of local optimization landscape consistency, we propose Taylor expansion inspired filtration framework, 
+		relying on the Taylor expansion of the loss function to inspire the key measurement index of sample filtration, i.e., gradient and feature of finite orders. 
+		We derive two novel filters from this framework: <i>gradient synchronization filter (GSF)</i> selecting samples with similar optimization dynamics to the most reliable one, 
+		and <i>prototype proximity filter (PPF)</i> selecting samples near semantic prototypes.
+            </p>
+        </td>
+    </tr>
+</table>
+
+
+<br>
+<hr>
+<div style="text-align: center;">
+    <h2>Abstract</h2>
+</div>
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+		Semi-supervised learning (SSL) has been studied for a long time to solve vision tasks in data-efficient application scenarios. 
+		SSL aims to learn a good classification model using a few labeled data together with large-scale unlabeled data. 
+		Recent advances achieve the goal by combining multiple SSL techniques, e.g., self-training and consistency regularization. 
+		From unlabeled samples, they usually adopt a confidence filter (CF) to select reliable ones with high prediction confidence. 
+		In this work, we study whether the moderately confident samples are useless and how to select the useful ones to improve model optimization. 
+		To answer these problems, we propose a novel Taylor expansion inspired filtration (TEIF) framework, 
+		which admits the samples of moderate confidence with similar feature or gradient to the respective one averaged over the labeled and highly confident unlabeled data. 
+		It can produce a stable and new information induced network update, leading to better generalization. 
+		Two novel filters are derived from this framework and can be naturally explained in two perspectives. 
+		One is gradient synchronization filter (GSF), which strengthens the optimization dynamic of fully-supervised learning; 
+		it selects the samples whose gradients are similar to class-wise majority gradients. 
+		The other is prototype proximity filter (PPF), which involves more prototypical samples in training to learn better semantic representations; 
+		it selects the samples near class-wise prototypes. 
+		They can be integrated into SSL methods with CF. 
+		We use the state-of-the-art FixMatch as the baseline. 
+		Experiments on popular SSL benchmarks show that we achieve the new state of the art.
+            </p>
+        </td>
+    </tr>
+</table>
+
+<br>
+<hr>
+<div style="text-align: center;">
+    <h2>Background & Motivation</h2>
+</div>
+
+<table>
+    <tr>
+        <td>
+            <div style="text-align: center;">
+                <img src="resources/fig1.png" width="500px">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+                <br>
+                Diagram of combining self-training and consistency regularization.
+		The two techniques would be uninformative when the model predicts a uniform distribution over classes. 
+		Confidence filtering abandons the samples whose prediction confidences (ranged in [0,1]) are lower than a predefined high threshold (e.g., 0.95). 
+		It is reasonable that the least confident samples are extremely unreliable. 
+		But are all the moderately confident samples useless, e.g., with confidence ranged in (0.75,0.95)? 
+		Is there any way to pick out the useful ones to enhance the optimization power applied to the model? 
+            </p>
+        </td>
+    </tr>
+</table>
+
+<br>
+<hr>
+<div style="text-align: center;">
+    <h2>Highlights</h2>
+</div>
+
+<div style="text-align: center;">
+    <h3>A Novel Framework of Taylor Expansion Inspired Filtration</h3>
+</div>
+	
+<table>
+    <tr>
+        <td>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+		In this work, we solve the questions by introducing a novel framework of Taylor expansion inspired filtration (TEIF). 
+		The Tayor formula of the cross-entropy loss function with respect to the feature of one sample with true or pseudo label mainly includes terms of the multiplication of gradient and feature of finite orders. 
+		To make the change of loss consistent in the neighborhood of the feature, this framework selects the samples of moderate confidence, whose feature or gradient is similar to the respective one averaged over the labeled and highly confident unlabeled data, which are the most reliable. 
+		<br>
+		<br>
+		In essence, the samples with similar local manifolds are selected.
+		Hence, the final network update is still close to the one determined by the most reliable samples and further incorporates the new information contained in the selected samples of moderate confidence, such that the model optimization could be steady and improved.
+		From this framework, two novel filters are derived to select the helpful samples from the moderately confident unlabeled data. The selected samples together with the highly confident ones are then used to train the classification model.  
+            </p>
+        </td>
+    </tr>
+</table>
+
+<div style="text-align: center;">
+    <h3>Gradient Synchronization Filter (GSF)</h3>
+</div>
+	
+<table>
+    <tr>
+        <td>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+		The first filter based on gradients assumes that one moderately confident sample is useful if it follows the optimization dynamic of fully-supervised learning. 
+		We can approximate the optimization dynamic by class-wise majority gradients, which are computed on features of the labeled and highly confident unlabeled samples.
+		<br>
+		<br>
+		From those moderately confident samples, we select the ones that have similar feature gradients to the corresponding majority gradient. We thus term this method as gradient synchronization filter (GSF).
+            </p>
+	    <br>
+	    <div style="text-align: center;">
+                <img src="resources/fig2.png" width="500px">
+            </div>
+	    <p style="text-align: center;">
+		An illustrative example of sample selection in GSF.
+	    </p>
+        </td>
+    </tr>
+</table>
+
+<div style="text-align: center;">
+    <h3>Prototype Proximity Filter (PPF)</h3>
+</div>
+	
+<table>
+    <tr>
+        <td>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+		The second filter based on features assumes that one moderately confident sample is useful if it has a certain level of prototypicality. 
+		<br>
+		<br>
+		The samples near prototypes are selected from those moderately confident unlabeled data. 
+		We thus term this method as prototype proximity filter (PPF). 
+            </p>
+	    <br>
+	    <div style="text-align: center;">
+                <img src="resources/fig3.png" width="500px">
+            </div>
+	    <p style="text-align: center;">
+		An illustrative example of sample selection in PPF.
+	    </p>
+        </td>
+    </tr>
+</table>
+
+<br>
+<hr>
+<div style="text-align: center;">
+    <h2>Experiments</h2>
+</div>
+
+<div style="text-align: center;">
+    <h3>Ablation Study and Learning Analysis</h3>
+</div>
+
+<table>
+    <tr>
+        <td>
+            <p>
+                <b>
+                    R1: Moderate Confidence Bounding
+                </b>
+            </p>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+		In the following figure, it is observed that the performance is almost always benign and stable in the respective small-value ranges of the lower and upper bounds. 
+		A possible reason is that the increase in the number of selected unlabeled samples 
+		(i.e., more samples are selected at smaller values) could compensate the negative effects caused by including low-quality samples in training. 
+		As the lower and upper bounds increase, the performance stays almost the same on the 250-label setting whereas it does not on the 40-label setting, 
+		revealing that the sensitivity of one SSL method to the hyperparameters is increased with fewer labels per class due to less reliable pattern learning. 
+		Note that when the upper bound has a value of 1, all unlabeled samples for training are selected by our GSF or PPF, 
+		and thus all highly confident samples may be discarded. 
+		In this case, the error rates go up, suggesting that the use of highly confident samples is indispensable for learning a good model. 
+            </p>
+	    <br>
+            <div style="text-align: center;">
+                <img src="resources/fig4.png" width="900px">
+            </div>
+	    <p style="text-align:center;">
+		Error rates w.r.t. the lower (left) and upper (center) bounds of moderate confidence, and the gradient synchronization threshold of our proposed GSF (right) on 40- and 250-label settings.
+	    </p>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <br>
+            <p>
+                <b>
+                    R2: Gradient Synchronization Thresholding
+                </b>
+            </p>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+                In the figure above, we can observe that with 25 labels per class, the error rate fluctuates very slightly with the increase of &tau;<sub>s</sub>, 
+		indicating that more highly confident samples (on account of more labels) can build a better foundation of model optimization for pattern learning. 
+		Hence, the selected low-quality samples have less adverse impact on the learned model’s classification behavior. 
+		On the 40-label setting, the performance changes considerably as varying the value of &tau;<sub>s</sub>, 
+		confirming that the hyperparameter sensitivity is inversely proportional to the number of labels available. 
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <br>
+            <p>
+                <b>
+                    R3: Sample Selection Ratio
+                </b>
+            </p>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+		As the training process proceeds, these ratios first increase and then stabilize at the level close to 1, 
+		indicating that an increasing number of unlabeled samples participate in training; 
+		on the 250-label setting, these ratios are consistently higher than those on the 40-label setting, 
+		manifesting that more experience, more confidence in making decisions; 
+		the gap between the paired ratios of all selected samples and highly confident ones, 
+		i.e., the ratio of selected moderately confident samples, 
+		is big in the earlier stage and decreases in the later stage 
+		since the instinct of self-training is to produce more and more samples of high confidence. 
+		<br>
+		<br>
+		In the following Fig. c, we observe that our GSF and PPF enjoy a lower mislabeled ratio, 
+		suggesting that <i>our methods can learn better decision boundaries closer to the ground-truth ones</i>.
+            </p>
+	    <br>
+            <div style="text-align: center;">
+                <img src="resources/fig5.png" width="900px">
+            </div>
+	    <p style="text-align:center;">
+		Ratios of all selected samples (“ALL”) and highly confident ones (“HC”) in the unlabeled batch for 40- (left) and 250-label (center) settings, and mislabeled ratio (right) in the selected pseudo-labeled set on the 40-label setting.
+	    </p>
+        </td>
+    </tr>
+
+</table>
+
+	
+<div style="text-align: center;">
+    <h3>Saliency Map Visualization</h3>
+</div>
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+		In the following figure, it is observed that our methods learn better feature representations that capture more complete semantic patterns, e.g., first example.
+            </p>
+	    <br>
+            <div style="text-align: center;">
+                <img src="resources/fig6.png" width="600px">
+            </div>
+	    <p style="text-align:center;">
+		Visualizing the Grad-CAM saliency maps from the baseline FixMatch and our proposed GSF and PPF on 40- and 250-label settings. 
+		Note that the number on top of each picture means the ground-truth (first column) or predicted labels (other columns).
+	    </p>
+        </td>
+    </tr>
+</table>
+	
+	
+<div style="text-align: center;">
+    <h3>Confidence Spectrum</h3>
+</div>
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+                In the following figure, we observe that the higher the confidence of a sample, the more inclined our method is to select it.
+            </p>
+	    <br>
+            <div style="text-align: center;">
+                <img src="resources/fig7.png" width="500px">
+            </div>
+	    <p style="text-align:center;">
+		Spectrum of confidence for samples selected by GSF and PPF. (128<sup>th</sup> epoch, CIFAR10@40).
+	    </p>
+        </td>
+    </tr>
+</table>
+
+
+<div style="text-align: center;">
+    <h3>Comparison with SOTA</h3>
+</div>
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+		 Experiments on SSL benchmarks show that our methods based on FixMatch achieve significant improvements in accuracy, verifying their efficacy in filtering samples of moderate confidence.
+            </p>
+	    <br>
+            <div style="text-align: center;">
+                <img src="resources/tab1.png" width="900px">
+            </div>
+	    <p style="text-align:center;">
+		Error rates (%) for CIFAR-10, CIFAR-100, and SVHN.
+	    </p>
+        </td>
+    </tr>
+</table>
+	
+<br>
+<hr>
+
+<div style="text-align: center;">
+    <h2>BibTeX</h2>
+</div>
+      <pre>
+  	<code>
+		@inproceedings{tang2022towards,
+		  title={Towards Discovering the Effectiveness of Moderately Confident Samples for Semi-Supervised Learning},
+		  author={Tang, Hui and Jia, Kui},
+		  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+		  pages={14658--14667},
+		  year={2022}
+		}
+  	</code>
+      </pre>
+	
+<br>
+<hr>
+
+<div style="text-align: center;">
+    <h2>Acknowledgements</h2>
+</div>
+      <p>
+	      Based on a template by <a href="https://kyanchen.github.io/OvarNet/">Keyan Chen</a>.
+      </p>
+
+<br>
+<br>
+<br>
+
+</body>
+</html>
