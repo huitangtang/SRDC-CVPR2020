@@ -427,16 +427,11 @@
     <h3>Training Algorithm</h3>
 </div>
 	
-<table>
-    <tr>
-        <td>
-	    <br>
-	    <div style="text-align: center;">
-                <img src="resources/alg.png" width="600px">
-            </div>
-        </td>
-    </tr>
-</table>
+
+<div style="text-align: center;">
+	<img src="resources/alg.png" width="600px">
+</div>
+
 
 <br>
 <hr>
@@ -453,26 +448,18 @@
         <td>
             <p>
                 <b>
-                    R1: Moderate Confidence Bounding
+                    R1: Ablation Study
                 </b>
             </p>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-		In the following figure, it is observed that the performance is almost always benign and stable in the respective small-value ranges of the lower and upper bounds. 
-		A possible reason is that the increase in the number of selected unlabeled samples 
-		(i.e., more samples are selected at smaller values) could compensate the negative effects caused by including low-quality samples in training. 
-		As the lower and upper bounds increase, the performance stays almost the same on the 250-label setting whereas it does not on the 40-label setting, 
-		revealing that the sensitivity of one SSL method to the hyperparameters is increased with fewer labels per class due to less reliable pattern learning. 
-		Note that when the upper bound has a value of 1, all unlabeled samples for training are selected by our GSF or PPF, 
-		and thus all highly confident samples may be discarded. 
-		In this case, the error rates go up, suggesting that the use of highly confident samples is indispensable for learning a good model. 
+		In the following table, we can observe that when any one of our designed components is removed, the performance degrades, 
+		verifying that (1) both feature discrimination and structural source regularization are effective for improving target clustering; 
+		(2) the proposed soft source sample selection scheme leads to better regularization. 
             </p>
 	    <br>
             <div style="text-align: center;">
-                <img src="resources/fig4.png" width="900px">
+                <img src="resources/tab1.png" width="900px">
             </div>
-	    <p style="text-align:center;">
-		Error rates w.r.t. the lower (left) and upper (center) bounds of moderate confidence, and the gradient synchronization threshold of our proposed GSF (right) on 40- and 250-label settings.
-	    </p>
         </td>
     </tr>
 
