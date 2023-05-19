@@ -336,16 +336,16 @@
     <tr>
         <td>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-                <br>
-                Diagram of combining self-training and consistency regularization.
-		The two techniques would be uninformative when the model predicts a uniform distribution over classes. 
-		Confidence filtering abandons the samples whose prediction confidences (ranged in [0,1]) are lower than a predefined high threshold (e.g., 0.95). 
-		It is reasonable that the least confident samples are extremely unreliable. 
-		But are all the moderately confident samples useless, e.g., with confidence ranged in (0.75,0.95)? 
-		Is there any way to pick out the useful ones to enhance the optimization power applied to the model? 
+		The success of deep learning relies on a large amount of training data. 
+		However, collecting and annotating data for all domains and tasks is extremely expensive and time-consuming. 
+		We can utilize data from a label-rich source domain to solve the task on a label-scarce target domain. 
+		But there is a distribution discrepancy between the source and target data. 
+		So the model trained on source data cannot be readily applied to target data. 
+		How to address this issue? Unsupervised domain adaptation (UDA)!
             </p>
         </td>
     </tr>
+    <br>
     <tr>
         <td>
             <div style="text-align: center;">
@@ -356,13 +356,17 @@
     <tr>
         <td>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-                <br>
-                Diagram of combining self-training and consistency regularization.
-		The two techniques would be uninformative when the model predicts a uniform distribution over classes. 
-		Confidence filtering abandons the samples whose prediction confidences (ranged in [0,1]) are lower than a predefined high threshold (e.g., 0.95). 
-		It is reasonable that the least confident samples are extremely unreliable. 
-		But are all the moderately confident samples useless, e.g., with confidence ranged in (0.75,0.95)? 
-		Is there any way to pick out the useful ones to enhance the optimization power applied to the model? 
+		(a) Illustration of the assumption of structural domain similarity, including two concepts: domain-wise discrimination and class-wise closeness. 
+		The orange line denotes the classifier trained on the labeled source data and the green	one denotes the classifier trained on the labeled target data, i.e. the oracle target classifier. 
+		(b) Illustration of damaging intrinsic structures of data discrimination on the target domain by the existing transferring strategy. 
+		The dashed line denotes the source classifier adapting to the damaged discrimination of target data, which has a sub-optimal generalization. 
+		(c) Illustration of our proposed uncovering strategy. Discriminative target clustering with structural source regularization uncovers intrinsic target discrimination. 
+		<br>
+		<br>
+		Mainstream UDA methods take the transferring strategy of learning aligned features across domains, 
+		which has a potential risk of damaging the intrinsic discrimination of target data, resulting in a sub-optimal generalization. 
+		Based on our assumed structural domain similarity, we directly uncover the intrinsic target discrimination via discriminative clustering of target data 
+		and constrain the clustering solutions using structural source regularization, leading to an adapted classifier closer to the oracle target classifier. 
             </p>
         </td>
     </tr>
@@ -375,72 +379,61 @@
 </div>
 
 <div style="text-align: center;">
-    <h3>A Novel Framework of Taylor Expansion Inspired Filtration</h3>
+    <h3>Deep Discriminative Target Clustering</h3>
 </div>
 	
 <table>
     <tr>
         <td>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-		In this work, we solve the questions by introducing a novel framework of Taylor expansion inspired filtration (TEIF). 
-		The Tayor formula of the cross-entropy loss function with respect to the feature of one sample with true or pseudo label mainly includes terms of the multiplication of gradient and feature of finite orders. 
-		To make the change of loss consistent in the neighborhood of the feature, this framework selects the samples of moderate confidence, whose feature or gradient is similar to the respective one averaged over the labeled and highly confident unlabeled data, which are the most reliable. 
+		We propose to use deep discriminative target clustering in the output space and feature space at the same time. This is a new dual clustering framework. 
+		The clustering algorithm obtains pseudo labels of target data to supervise the model training by minimizing an objective of two terms. 
+		The first term is the KL divergence between the network prediction label distribution and the introduced auxiliary distribution; 
+		the second term is a regularization of cluster size balance. 
 		<br>
 		<br>
-		In essence, the samples with similar local manifolds are selected.
-		Hence, the final network update is still close to the one determined by the most reliable samples and further incorporates the new information contained in the selected samples of moderate confidence, such that the model optimization could be steady and improved.
-		From this framework, two novel filters are derived to select the helpful samples from the moderately confident unlabeled data. The selected samples together with the highly confident ones are then used to train the classification model.  
+		Here, category prediction probability modeling in feature space is based on Euclidean distance from instance to learnable cluster centers. 
+		The clustering behavior in feature space can not only further reveal the inherent differences between target data, 
+		but also act as the constraint of clustering in output space to maintain different cluster centers and avoid mode collapse.
             </p>
         </td>
     </tr>
 </table>
 
 <div style="text-align: center;">
-    <h3>Gradient Synchronization Filter (GSF)</h3>
+    <h3>Structural Source Regularization</h3>
 </div>
 	
 <table>
     <tr>
         <td>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-		The first filter based on gradients assumes that one moderately confident sample is useful if it follows the optimization dynamic of fully-supervised learning. 
-		We can approximate the optimization dynamic by class-wise majority gradients, which are computed on features of the labeled and highly confident unlabeled samples.
+		Based on the structural similarity between the source and target domains indicated by the UDA assumption, 
+		we propose the structural source regularization — replacing the auxiliary distribution with truth label distribution, 
+		and using the labeled source data to train the same classifier network layers, namely joint network training. 
 		<br>
 		<br>
-		From those moderately confident samples, we select the ones that have similar feature gradients to the corresponding majority gradient. We thus term this method as gradient synchronization filter (GSF).
+		In addition, we propose a soft selection strategy for source samples, 
+		which weights the source samples according to their importance to the target domain. 
+		The concept of class-wise closeness in the assumption of structural domain similarity implies that 
+		different source instances may have different regularization effects; 
+		accordingly, they can be weighted based on distances to corresponding target clusters. 
             </p>
-	    <br>
-	    <div style="text-align: center;">
-                <img src="resources/fig2.png" width="500px">
-            </div>
-	    <p style="text-align: center;">
-		An illustrative example of sample selection in GSF.
-	    </p>
         </td>
     </tr>
 </table>
 
 <div style="text-align: center;">
-    <h3>Prototype Proximity Filter (PPF)</h3>
+    <h3>Training Algorithm</h3>
 </div>
 	
 <table>
     <tr>
         <td>
-            <p style="text-align:justify; text-justify:inter-ideograph;">
-		The second filter based on features assumes that one moderately confident sample is useful if it has a certain level of prototypicality. 
-		<br>
-		<br>
-		The samples near prototypes are selected from those moderately confident unlabeled data. 
-		We thus term this method as prototype proximity filter (PPF). 
-            </p>
 	    <br>
 	    <div style="text-align: center;">
-                <img src="resources/fig3.png" width="500px">
+                <img src="resources/alg.png" width="600px">
             </div>
-	    <p style="text-align: center;">
-		An illustrative example of sample selection in PPF.
-	    </p>
         </td>
     </tr>
 </table>
