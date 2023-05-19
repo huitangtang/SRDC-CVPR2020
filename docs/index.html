@@ -329,6 +329,26 @@
     <tr>
         <td>
             <div style="text-align: center;">
+                <img src="resources/UDA.png" width="500px">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+                <br>
+                Diagram of combining self-training and consistency regularization.
+		The two techniques would be uninformative when the model predicts a uniform distribution over classes. 
+		Confidence filtering abandons the samples whose prediction confidences (ranged in [0,1]) are lower than a predefined high threshold (e.g., 0.95). 
+		It is reasonable that the least confident samples are extremely unreliable. 
+		But are all the moderately confident samples useless, e.g., with confidence ranged in (0.75,0.95)? 
+		Is there any way to pick out the useful ones to enhance the optimization power applied to the model? 
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div style="text-align: center;">
                 <img src="resources/strategy.png" width="500px">
             </div>
         </td>
