@@ -429,7 +429,7 @@
 	
 
 <div style="text-align: center;">
-	<img src="resources/alg.png" width="600px">
+	<img src="resources/alg.png" width="500px">
 </div>
 
 
@@ -463,22 +463,47 @@
         </td>
     </tr>
 
+    <tr>
+        <td>
+            <br>
+            <p>
+                <b>
+                    R2: Source Refinement
+                </b>
+            </p>
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+                In the following figure, we can observe that the source images with a canonical viewpoint have the higher weights than those with top-down, bottom-up, and side viewpoints, 
+		which is intuitive since all target images are shown only from a canonical viewpoint. 
+		The observation affirms the rationality of our proposed soft source sample selection scheme.
+            </p>
+	    <br>
+            <div style="text-align: center;">
+                <img src="resources/select.png" width="900px">
+            </div>
+	    <p style="text-align:center;">
+		The images on the left are randomly sampled from the target domain Amazon and 
+		those on the right are the top-ranked (the 3<sup>rd</sup> column) and bottom-ranked (the 4<sup>th</sup> column) samples from the source domain Webcam for three classes. 
+		Note that the red numbers are the computed source weights. 
+	    </p>
+        </td>
+    </tr>
 
     <tr>
         <td>
             <br>
             <p>
                 <b>
-                    R2: Gradient Synchronization Thresholding
+                    R3: Comparison under Inductive UDA Setting
                 </b>
             </p>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-                In the figure above, we can observe that with 25 labels per class, the error rate fluctuates very slightly with the increase of &tau;<sub>s</sub>, 
-		indicating that more highly confident samples (on account of more labels) can build a better foundation of model optimization for pattern learning. 
-		Hence, the selected low-quality samples have less adverse impact on the learned model’s classification behavior. 
-		On the 40-label setting, the performance changes considerably as varying the value of &tau;<sub>s</sub>, 
-		confirming that the hyperparameter sensitivity is inversely proportional to the number of labels available. 
+		In the following table, we can see that our proposed uncovering strategy SRDC achieves closer results to Oracle Model, 
+		verifying the motivation of this work and the efficacy of our proposed SRDC.
             </p>
+	    <br>
+            <div style="text-align: center;">
+                <img src="resources/tab2.png" width="900px">
+            </div>
         </td>
     </tr>
 
@@ -487,76 +512,60 @@
             <br>
             <p>
                 <b>
-                    R3: Sample Selection Ratio
+                    R4: Feature Visualization
                 </b>
             </p>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-		As the training process proceeds, these ratios first increase and then stabilize at the level close to 1, 
-		indicating that an increasing number of unlabeled samples participate in training; 
-		on the 250-label setting, these ratios are consistently higher than those on the 40-label setting, 
-		manifesting that more experience, more confidence in making decisions; 
-		the gap between the paired ratios of all selected samples and highly confident ones, 
-		i.e., the ratio of selected moderately confident samples, 
-		is big in the earlier stage and decreases in the later stage 
-		since the instinct of self-training is to produce more and more samples of high confidence. 
-		<br>
-		<br>
-		In the following Fig. c, we observe that our GSF and PPF enjoy a lower mislabeled ratio, 
-		suggesting that <i>our methods can learn better decision boundaries closer to the ground-truth ones</i>.
+                In the following figure, We can qualitatively observe that compared to Source Model, 
+		the target domain features can be much better discriminated by SRDC, 
+		which is based on data clustering to uncover the discriminative data structures.
             </p>
 	    <br>
             <div style="text-align: center;">
-                <img src="resources/fig5.png" width="900px">
+                <img src="resources/tsne.png" width="900px">
             </div>
 	    <p style="text-align:center;">
-		Ratios of all selected samples (“ALL”) and highly confident ones (“HC”) in the unlabeled batch for 40- (left) and 250-label (center) settings, and mislabeled ratio (right) in the selected pseudo-labeled set on the 40-label setting.
+		The t-SNE visualization of embedded features on the target domain.
 	    </p>
         </td>
     </tr>
 
-</table>
-
-	
-<div style="text-align: center;">
-    <h3>Saliency Map Visualization</h3>
-</div>
-
-<table>
     <tr>
         <td>
+            <br>
+            <p>
+                <b>
+                    R5: Confusion Matrix
+                </b>
+            </p>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-		In the following figure, it is observed that our methods learn better feature representations that capture more complete semantic patterns, e.g., first example.
+                In the following figure,  we can observe quantitative improvements from Source Model to SRDC, further confirming the advantages of SRDC.
             </p>
 	    <br>
             <div style="text-align: center;">
-                <img src="resources/fig6.png" width="600px">
+                <img src="resources/confusion_matrix.png" width="900px">
             </div>
 	    <p style="text-align:center;">
-		Visualizing the Grad-CAM saliency maps from the baseline FixMatch and our proposed GSF and PPF on 40- and 250-label settings. 
-		Note that the number on top of each picture means the ground-truth (first column) or predicted labels (other columns).
+		The confusion matrix on the target domain.
 	    </p>
         </td>
     </tr>
-</table>
-	
-	
-<div style="text-align: center;">
-    <h3>Confidence Spectrum</h3>
-</div>
 
-<table>
     <tr>
         <td>
+            <br>
+            <p>
+                <b>
+                    R6: Convergence Performance
+                </b>
+            </p>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-                In the following figure, we observe that the higher the confidence of a sample, the more inclined our method is to select it.
+                In the following figure, We can observe that SRDC enjoys faster and smoother convergence performance than Source Model.
             </p>
 	    <br>
             <div style="text-align: center;">
-                <img src="resources/fig7.png" width="500px">
+                <img src="resources/convergence.png" width="900px">
             </div>
-	    <p style="text-align:center;">
-		Spectrum of confidence for samples selected by GSF and PPF. (128<sup>th</sup> epoch, CIFAR10@40).
-	    </p>
         </td>
     </tr>
 </table>
@@ -570,14 +579,28 @@
     <tr>
         <td>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-		 Experiments on SSL benchmarks show that our methods based on FixMatch achieve significant improvements in accuracy, verifying their efficacy in filtering samples of moderate confidence.
+		 Notably, with no explicit domain alignment, our proposed SRDC outperforms all existing methods on three UDA benchmark datasets.
             </p>
 	    <br>
             <div style="text-align: center;">
-                <img src="resources/tab1.png" width="900px">
+                <img src="resources/tab3.png" width="900px">
             </div>
 	    <p style="text-align:center;">
-		Error rates (%) for CIFAR-10, CIFAR-100, and SVHN.
+		Results (%) on Office-31 (ResNet-50).
+	    </p>
+	    <br>
+            <div style="text-align: center;">
+                <img src="resources/tab4.png" width="900px">
+            </div>
+	    <p style="text-align:center;">
+		Results (%) on ImageCLEF-DA (ResNet-50).
+	    </p>
+	    <br>
+            <div style="text-align: center;">
+                <img src="resources/tab5.png" width="900px">
+            </div>
+	    <p style="text-align:center;">
+		Results (%) on Office-Home (ResNet-50).
 	    </p>
         </td>
     </tr>
@@ -591,12 +614,12 @@
 </div>
       <pre>
   	<code>
-		@inproceedings{tang2022towards,
-		  title={Towards Discovering the Effectiveness of Moderately Confident Samples for Semi-Supervised Learning},
-		  author={Tang, Hui and Jia, Kui},
-		  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-		  pages={14658--14667},
-		  year={2022}
+		@inproceedings{tang2020unsupervised,
+		  title={Unsupervised domain adaptation via structurally regularized deep clustering},
+		  author={Tang, Hui and Chen, Ke and Jia, Kui},
+		  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
+		  pages={8725--8735},
+		  year={2020}
 		}
   	</code>
       </pre>
