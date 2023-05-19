@@ -269,18 +269,18 @@
     <tr>
         <td>
             <div style="text-align: center;">
-                <img src="resources/GSF&PPF.png" width="900px">
+                <img src="resources/SRDC.png" width="900px">
             </div>
         </td>
     </tr>
     <tr>
         <td>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-		We propose to utilize moderately confident samples for better model optimization. 
-		Based on the principle of local optimization landscape consistency, we propose Taylor expansion inspired filtration framework, 
-		relying on the Taylor expansion of the loss function to inspire the key measurement index of sample filtration, i.e., gradient and feature of finite orders. 
-		We derive two novel filters from this framework: <i>gradient synchronization filter (GSF)</i> selecting samples with similar optimization dynamics to the most reliable one, 
-		and <i>prototype proximity filter (PPF)</i> selecting samples near semantic prototypes.
+		To address a potential issue of damaging the intrinsic data discrimination by explicitly learning domain-aligned features, 
+		we propose a source-regularized, deep discriminative clustering method in order to directly uncover the intrinsic discrimination among target data, 
+		termed as Structurally Regularized Deep Clustering (SRDC). 
+		In SRDC, we also design useful ingredients to enhance target discrimination with clustering of intermediate network features, 
+		and to enhance structural regularization with soft selection of less divergent source examples.
             </p>
         </td>
     </tr>
@@ -297,22 +297,23 @@
     <tr>
         <td>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-		Semi-supervised learning (SSL) has been studied for a long time to solve vision tasks in data-efficient application scenarios. 
-		SSL aims to learn a good classification model using a few labeled data together with large-scale unlabeled data. 
-		Recent advances achieve the goal by combining multiple SSL techniques, e.g., self-training and consistency regularization. 
-		From unlabeled samples, they usually adopt a confidence filter (CF) to select reliable ones with high prediction confidence. 
-		In this work, we study whether the moderately confident samples are useless and how to select the useful ones to improve model optimization. 
-		To answer these problems, we propose a novel Taylor expansion inspired filtration (TEIF) framework, 
-		which admits the samples of moderate confidence with similar feature or gradient to the respective one averaged over the labeled and highly confident unlabeled data. 
-		It can produce a stable and new information induced network update, leading to better generalization. 
-		Two novel filters are derived from this framework and can be naturally explained in two perspectives. 
-		One is gradient synchronization filter (GSF), which strengthens the optimization dynamic of fully-supervised learning; 
-		it selects the samples whose gradients are similar to class-wise majority gradients. 
-		The other is prototype proximity filter (PPF), which involves more prototypical samples in training to learn better semantic representations; 
-		it selects the samples near class-wise prototypes. 
-		They can be integrated into SSL methods with CF. 
-		We use the state-of-the-art FixMatch as the baseline. 
-		Experiments on popular SSL benchmarks show that we achieve the new state of the art.
+		Unsupervised domain adaptation (UDA) is to make predictions for unlabeled data on a target domain, 
+		given labeled data on a source domain whose distribution shifts from the target one. 
+		Mainstream UDA methods learn aligned features between the two domains, 
+		such that a classifier trained on the source features can be readily applied to the target ones. 
+		However, such a transferring strategy has a potential risk of damaging the intrinsic discrimination of target data. 
+		To alleviate this risk, we are motivated by the assumption of structural domain similarity, 
+		and propose to directly uncover the intrinsic target discrimination via discriminative clustering of target data. 
+		We constrain the clustering solutions using structural source regularization that hinges on our assumed structural domain similarity. 
+		Technically, we use a flexible framework of deep network based discriminative clustering 
+		that minimizes the KL divergence between predictive label distribution of the network and an introduced auxiliary one; 
+		replacing the auxiliary distribution with that formed by ground-truth labels of source data 
+		implements the structural source regularization via a simple strategy of joint network training. 
+		We term our proposed method as Structurally Regularized Deep Clustering (SRDC), 
+		where we also enhance target discrimination with clustering of intermediate network features, 
+		and enhance structural regularization with soft selection of less divergent source examples. 
+		Careful ablation studies show the efficacy of our proposed SRDC. 
+		Notably, with no explicit domain alignment, SRDC outperforms all existing methods on three UDA benchmarks.
             </p>
         </td>
     </tr>
@@ -328,7 +329,7 @@
     <tr>
         <td>
             <div style="text-align: center;">
-                <img src="resources/fig1.png" width="500px">
+                <img src="resources/strategy.png" width="500px">
             </div>
         </td>
     </tr>
